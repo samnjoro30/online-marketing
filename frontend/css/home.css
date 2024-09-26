@@ -124,7 +124,7 @@ footer {
     width: max-content;
     border-radius: 28px;
     background-color: #f9f9f9;
-    transition:bbox-shadow 0.25s;
+    transition:box-shadow 0.25s;
     margin: 2px;
 }
  .search:focus-within{
@@ -143,4 +143,7 @@ footer {
 .search_input::placeholder,
         .search_icon{
     color:rgba(0,0,0,0.35);
+}
+.navigation{
+    display: inline;
 }

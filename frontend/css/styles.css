@@ -54,7 +54,7 @@ button {
     background-color: #2575fc;
     color: #ffffff;
     font-size: 18px;
-    cursor: pointer;
+    cursor:pointer;
     transition: background-color 0.3s ease;
 }
 

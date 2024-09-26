@@ -22,6 +22,36 @@
             <p>Don't have an account? <a href="register.html">Register</a></p>
         </form>
     </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault(); 
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Login successful');
+                    
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'home.html'; // Redirect to homepage or dashboard
+                } else {
+                    document.getElementById('errorMessage').innerText = data.msg || 'Login failed';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').innerText = 'Server error';
+            }
+        });
+    </script>
 </body>
 </html>
 
